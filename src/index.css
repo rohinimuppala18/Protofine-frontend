@@ -1,0 +1,91 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg-page: #FAF9F5;
+    --bg-surface: #FFFFFF;
+    --bg-surface-muted: #F4F2EB;
+    --border-subtle: #E8E4D8;
+    --forest-primary: #0F2D1F;
+    --harvest-accent: #D97706;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    background-color: var(--bg-page);
+    color: #1A221C;
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Accessible focus indicators */
+  :focus-visible {
+    outline: 2px solid #2E744F;
+    outline-offset: 2px;
+  }
+}
+
+@layer utilities {
+  /* Subtle organic paper texture effect */
+  .bg-subtle-grid {
+    background-image: radial-gradient(rgba(15, 45, 31, 0.06) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+
+  .bg-grain {
+    background-image: radial-gradient(rgba(15, 45, 31, 0.03) 1px, transparent 0);
+    background-size: 8px 8px;
+  }
+
+  /* Hide scrollbar for clean tab views */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  /* Glassmorphism & subtle aura glows */
+  .glass-card {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(232, 228, 216, 0.9);
+  }
+
+  .glass-forest {
+    background: rgba(8, 28, 19, 0.92);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(46, 116, 79, 0.35);
+  }
+
+  .glow-emerald {
+    box-shadow: 0 0 24px -4px rgba(16, 185, 129, 0.18);
+  }
+
+  .glow-harvest {
+    box-shadow: 0 0 24px -4px rgba(217, 119, 6, 0.2);
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
